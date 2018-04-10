@@ -1,54 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO.Ports;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Autofac;
 
 namespace ReadSerial
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("hello");
 
-            var autoEvent = new AutoResetEvent(false);
-            var serialToMqttConverter = new SerialToMqttConverter();
+            var builder = new ContainerBuilder();
+
+            var dataAccess = Assembly.GetExecutingAssembly();
+            builder.RegisterAssemblyTypes(dataAccess)
+                .Where(t => t.Name.EndsWith("Fake"))
+                .AsImplementedInterfaces();
+            var container = builder.Build();
+            
+            var serialToMqttConverter = container.Resolve<ISerialToMqttConverter>();
             var stateTimer = new Timer(serialToMqttConverter.Read,null,0, 250);
 
             Console.ReadKey();
             
-        }
-
-        public class SerialToMqttConverter
-        {
-            SerialPort serialArduino;
-            public SerialToMqttConverter()
-            {
-
-                serialArduino = new SerialPort();
-                serialArduino.PortName = "COM3";
-                serialArduino.BaudRate = 115200;
-                serialArduino.DtrEnable = true;
-                serialArduino.Open();
-
-                MqttClient client = new MqttClient("broker.hivemq.com");
-
-            }
-
-            public void Read(Object stateInfo)
-            {
-                var msg = serialArduino.ReadExisting();
-
-                if (msg != string.Empty)
-                {
-                    Console.WriteLine(DateTime.Now.ToString("hh.mm.ss.ffffff"));
-                    Console.WriteLine(msg);
-                }
-
-            }
         }
 
 
