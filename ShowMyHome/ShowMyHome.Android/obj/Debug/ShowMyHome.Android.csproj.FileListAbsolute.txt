@@ -1,0 +1,1 @@
+C:\apps\Arduino\MyFirstTest\ShowMyHome\ShowMyHome.Android\obj\Debug\ShowMyHome.Android.csprojResolveAssemblyReference.cache
