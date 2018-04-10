@@ -1,7 +1,0 @@
-C:\apps\Arduino\MyFirstTest\ReadSerial\bin\Debug\ReadSerial.exe.config
-C:\apps\Arduino\MyFirstTest\ReadSerial\bin\Debug\ReadSerial.exe
-C:\apps\Arduino\MyFirstTest\ReadSerial\bin\Debug\ReadSerial.pdb
-C:\apps\Arduino\MyFirstTest\ReadSerial\obj\Debug\ReadSerial.csprojResolveAssemblyReference.cache
-C:\apps\Arduino\MyFirstTest\ReadSerial\obj\Debug\ReadSerial.csproj.CoreCompileInputs.cache
-C:\apps\Arduino\MyFirstTest\ReadSerial\obj\Debug\ReadSerial.exe
-C:\apps\Arduino\MyFirstTest\ReadSerial\obj\Debug\ReadSerial.pdb
