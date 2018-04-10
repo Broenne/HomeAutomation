@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
+using ReadSerial.Client;
 
 namespace ReadSerial
 {
@@ -19,13 +20,17 @@ namespace ReadSerial
 
             var dataAccess = Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(dataAccess)
-                .Where(t => t.Name.EndsWith("Fake"))
+                .Where(t => t.Name.EndsWith("Fake") )
                 .AsImplementedInterfaces();
+
+            builder.RegisterType<MqttConsoleClient>().As<IMqttConsoleClient>();
             var container = builder.Build();
+
             
             var serialToMqttConverter = container.Resolve<ISerialToMqttConverter>();
             var stateTimer = new Timer(serialToMqttConverter.Read,null,0, 250);
-
+            var client = container.Resolve<IMqttConsoleClient>();
+            client.Start();
             Console.ReadKey();
             
         }
