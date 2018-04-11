@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\IMqttConsoleClient.cs" />
+    <Compile Include="Configuration\ConfigurationService.cs" />
+    <Compile Include="Configuration\IConfigurationService.cs" />
     <Compile Include="ISerialToMqttConverter.cs" />
     <Compile Include="Client\MqttConsoleClient.cs" />
     <Compile Include="Program.cs" />
