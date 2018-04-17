@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyFirstTest", "MyFirstTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadSerial", "ReadSerial\ReadSerial.csproj", "{2D017367-95D5-4037-B8F5-140E2E21C335}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Embedded", "Embedded", "{DEFBCA3C-3F37-4B15-90FB-5A3AD84E96A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -88,6 +90,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88} = {DEFBCA3C-3F37-4B15-90FB-5A3AD84E96A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDE9878E-3844-45C1-842C-3E03BD729293}

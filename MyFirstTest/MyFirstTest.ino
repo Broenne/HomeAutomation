@@ -3,13 +3,24 @@
  Created:	11/30/2017 4:35:15 AM
  Author:	Marcus
 */
-//#include <PubSubClient.h> // MQTT Bibliothek
 
 #include "dht.h"
 #include "dht.h"
+
+// https://www.hivemq.com/blog/mqtt-client-library-encyclopedia-arduino-pubsubclient/
+#include <SPI.h>
+#include <Ethernet.h>
+#include <PubSubClient.h>
+
+
 //#include <dht.h>
 dht DHT;
 int sensorPin = 13;
+
+
+EthernetClient ethClient;
+PubSubClient mqttClient(ethClient);
+
 // the setup function runs once when you press reset or power the board
 void setup() {
 	//pinMode(LED_BUILTIN, OUTPUT);;
